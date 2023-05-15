@@ -1,0 +1,223 @@
+@import "./mixin.scss";
+@import "./variable.scss";
+
+* {
+    box-sizing: border-box;
+    outline: none;
+    outline: none;
+    user-select: none;
+}
+
+html,
+body {
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f9faff;
+    overflow: hidden;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+.cursor {
+    cursor: pointer;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.flex-end {
+    justify-content: flex-end;
+}
+
+.flex-around {
+    justify-content: space-around;
+}
+
+.flex-between {
+    justify-content: space-between;
+}
+
+.flex-center {
+    justify-content: center;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.text-ellipsis-2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.text-ellipsis-5 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+
+.text-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-column {
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.flex-right {
+    margin-left: auto;
+}
+
+a,
+.a {
+    cursor: pointer;
+    color: $color-primary;
+    text-decoration: none;
+
+    &:hover {
+        color: $color-success;
+        text-decoration: underline;
+    }
+}
+
+.w100 {
+    width: 100%;
+}
+
+.circle {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.border {
+    border: 1px solid #e9e9e9;
+}
+
+.full {
+    width: 100%;
+    height: 100%;
+}
+
+.flex-shrink {
+    flex-shrink: 0;
+}
+
+.flex-auto {
+    flex-grow: 1;
+}
+
+.flex-top {
+    align-items: flex-start;
+}
+
+.text-gray {
+    color: #999;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.text-danger {
+    color: $color-danger;
+}
+
+.text-primary {
+    color: $color-primary;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.text-deep {
+    color: #555;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.bg-primary {
+    background-color: $color-primary !important;
+
+    * {
+        background-color: $color-primary !important;
+    }
+}
+
+.bg-transparent {
+    background-color: transparent !important;
+}
+
+.bg-white {
+    background-color: #fff;
+}

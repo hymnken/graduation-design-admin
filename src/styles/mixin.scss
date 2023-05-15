@@ -1,0 +1,77 @@
+$counter : 40;
+
+@while $counter>0 {
+  .p-#{$counter} {
+    padding: (1px * $counter);
+  }
+
+  .p-t-#{$counter} {
+    padding-top: (1px * $counter);
+  }
+
+  .p-r-#{$counter} {
+    padding-right: (1px * $counter);
+  }
+
+  .p-b-#{$counter} {
+    padding-bottom: (1px * $counter);
+  }
+
+  .p-l-#{$counter} {
+    padding-left: (1px * $counter);
+  }
+
+  .p-x-#{$counter} {
+    padding-left: (1px * $counter);
+    padding-right: (1px * $counter);
+  }
+
+  .p-y-#{$counter} {
+    padding-top: (1px * $counter);
+    padding-bottom: (1px * $counter);
+  }
+
+  .m-#{$counter} {
+    margin: (1px * $counter);
+  }
+
+  .m-t-#{$counter} {
+    margin-top: (1px * $counter);
+  }
+
+  .m-r-#{$counter} {
+    margin-right: (1px * $counter);
+  }
+
+  .m-b-#{$counter} {
+    margin-bottom: (1px * $counter);
+  }
+
+  .m-l-#{$counter} {
+    margin-left: (1px * $counter);
+  }
+
+  .m-x-#{$counter} {
+    margin-left: (1px * $counter);
+    margin-right: (1px * $counter);
+  }
+
+  .m-y-#{$counter} {
+    margin-top: (1px * $counter);
+    margin-bottom: (1px * $counter);
+  }
+
+  .ft-#{$counter} {
+    font-size: (1px * $counter);
+  }
+
+  .width-#{$counter} {
+    width: (1px * $counter);
+  }
+
+  .height-#{$counter} {
+    height: (1px * $counter);
+  }
+
+  $counter : ($counter - 1);
+}
