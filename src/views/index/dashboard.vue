@@ -149,21 +149,10 @@ const drawTimer = () => {
     margin-left: 5px;
     height: 700px;
     width: 400px;
-    background-color: #7b7171;
+    background-color: #ece3e3;
     display: flex;
-    .container {
-      user-select: none;
-      padding-top: 10px;
-      a {
-        text-decoration: none;
-        color: #444;
-      }
-      a:link,
-      a:active,
-      a:hover {
-        color: #444;
-      }
-    }
+    flex-direction: column;
+    border-radius: 10px;
   }
 }
 </style>
