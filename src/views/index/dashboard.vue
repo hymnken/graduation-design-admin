@@ -8,13 +8,14 @@
         ,{{ greetText }}!
       </div>
     </div>
-    <Weather />
+    <div class="weather"><RouterView /></div>
+    <!-- <Weather /> -->
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted, inject, computed } from 'vue'
-import Weather from './weatherComponents/weather.vue'
+import { RouterView } from 'vue-router'
 const canvas = ref(null)
 const userInfo = inject('userInfo')
 let aniId
@@ -145,8 +146,9 @@ const drawTimer = () => {
     }
   }
   .weather {
-    margin-left: 100px;
-    height: 300px;
+    margin-left: 5px;
+    height: 700px;
+    width: 400px;
     background-color: #7b7171;
     display: flex;
     .container {

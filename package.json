@@ -9,9 +9,9 @@
   },
   "dependencies": {
     "@antv/g2plot": "^2.4.29",
+    "@popperjs/core": "^2.11.7",
     "ant-design-vue": "^3.1.0-rc.6",
     "axios": "^0.26.0",
-    "bootstrap": "^5.2.3",
     "dayjs": "^1.10.7",
     "mitt": "^3.0.0",
     "vue": "^3.2.25",
@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.2.0",
-    "sass": "^1.49.7",
+    "sass": "^1.62.1",
     "vite": "^2.8.0"
   }
 }
