@@ -8,15 +8,15 @@
         ,{{ greetText }}!
       </div>
     </div>
-    <div class="weather">213546456</div>
+    <Weather />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted, inject, computed } from 'vue'
+import Weather from './weatherComponents/weather.vue'
 const canvas = ref(null)
 const userInfo = inject('userInfo')
-
 let aniId
 onMounted(() => {
   ;(function loop() {
@@ -145,8 +145,23 @@ const drawTimer = () => {
     }
   }
   .weather {
+    margin-left: 100px;
     height: 300px;
     background-color: #7b7171;
+    display: flex;
+    .container {
+      user-select: none;
+      padding-top: 10px;
+      a {
+        text-decoration: none;
+        color: #444;
+      }
+      a:link,
+      a:active,
+      a:hover {
+        color: #444;
+      }
+    }
   }
 }
 </style>
