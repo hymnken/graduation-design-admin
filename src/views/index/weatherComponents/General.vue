@@ -1,14 +1,18 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+props: {
+  city: {
+    type: String
+  }
+}
+</script>
 
 <template>
   <div class="weather">
     <div><h3>天气预报11111111111222221111</h3></div>
     <div class="container">
       <a-card title="Default size card" style="width: 300px">
-        <template #extra><a href="#">more</a></template>
-        <p>card content</p>
-        <p>card content</p>
-        <p>card content</p>
+        <span class="float-end text-secondary">2022-10-10</span>
+        <h3>浦东</h3>
       </a-card>
     </div>
   </div>
@@ -17,7 +21,6 @@
 <style lang="scss" scoped>
 .container {
   margin-left: 10px;
-
   user-select: none;
   padding-top: 10px;
   a {
