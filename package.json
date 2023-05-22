@@ -14,9 +14,11 @@
     "axios": "^0.26.0",
     "bootstrap": "^5.3.0-alpha1",
     "dayjs": "^1.10.7",
+    "jsonp": "^0.2.1",
     "mitt": "^3.0.0",
     "vite-plugin-proxy": "^0.5.0",
     "vue": "^3.2.25",
+    "vue-jsonp": "^2.0.0",
     "vue-router": "^4.0.12",
     "vuex": "^4.0.2"
   },

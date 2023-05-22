@@ -1,22 +1,38 @@
 // 城市API的Url
-import { request, key } from './request'
-const cityUrl = 'https://geoapi.qweather.com/v2/city'
+// import { request, key } from './request'
+import jsonp from 'jsonp'
 
 // 获取城市信息
 export async function getCity() {
   const location = await getPosition()
+  const key = '4a2f95a41e3741c8aba587d6d113cfb9'
+  const cityUrl = 'https://geoapi.qweather.com/v2/city'
+  //   return request(
+  //     {
+  //       url: `/lookup?location=${location}&key=${key}`,
+  //       method: 'get',
+  //     },
+  //     cityUrl
+  //   )
+  console.log(location)
 
-  return request(
-    {
-      url: `/lookup?location=${location}&key=${key}`,
-      method: 'get',
-      headers: { 'Content-type': 'application/x-www-form-urlencoded' },
-    },
-    cityUrl
-  )
+  // 发起 GET 请求
+  const url = `${cityUrl}/lookup?location=${location}&key=${key}`
+  //   jsonp(url, (err, data) => {
+  //     if (err) {
+  //       console.error(err)
+  //       return
+  //     }
+  //     console.log(data)
+  //     // 处理返回的数据
+  //     responseData = data
+  //     // console.log(responseData)
+  //   })
+
+  return url
 }
 // 本身也是异步的，封装返回Promise方便处理
-function getPosition() {
+export async function getPosition() {
   return new Promise(function (resolve) {
     if ('geolocation' in navigator) {
       /* 地理位置服务可用 */

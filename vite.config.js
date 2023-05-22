@@ -44,11 +44,15 @@ module.exports = defineConfig({
     host: '127.0.0.1',
     port: 7789,
     proxy: {
-      '^/bd': {
+      '/bd': {
         target: 'https://geoapi.qweather.com/',
         changeOrigin: true,
-        secure: false,
         rewrite: (path) => path.replace(/^\/bd/, ''),
+      },
+      '/api': {
+        target: 'https://geoapi.qweather.com/',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
   },
@@ -68,15 +72,5 @@ module.exports = defineConfig({
       },
     },
   },
-  plugins: [
-    // createProxy({
-    //   '^/bd': {
-    //     target: 'https://geoapi.qweather.com/',
-    //     changeOrigin: true,
-    //     secure: false,
-    //     rewrite: (path) => path.replace(/^\/bd/, ''),
-    //   },
-    // }),
-    vue(),
-  ],
+  plugins: [vue()],
 })
