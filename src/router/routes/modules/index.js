@@ -1,4 +1,7 @@
-import General from '@/views/index/weatherComponents/General.vue'
+import Home from '../../../views/index/weatherComponents/Home.vue'
+import Details from '../../../views/index/weatherComponents/Details.vue'
+import Search from '../../../views/index/weatherComponents/Search.vue'
+import Dashboard from '@/views/index/dashboard.vue'
 export default {
   path: '',
   name: 'index',
@@ -12,7 +15,7 @@ export default {
     {
       path: 'dashboard',
       name: 'dashboard',
-      component: () => import('@/views/index/dashboard.vue'),
+      component: Dashboard,
       meta: {
         title: '工作台',
         auth: false,
@@ -20,10 +23,36 @@ export default {
       children: [
         {
           path: '',
-          name: 'general',
-          component: General,
+          name: 'Home',
+          component: Home,
           meta: {
-            title: '天气概述',
+            auth: false,
+          },
+        },
+        {
+          path: '/details/:city',
+          name: 'Details',
+          component: Details,
+          meta: {
+            auth: false,
+          },
+        },
+        {
+          path: '/search/:city',
+          name: 'Search',
+          component: Search,
+          meta: {
+            auth: false,
+          },
+        },
+        {
+          path: '/about',
+          name: 'About',
+          // route level code-splitting
+          // this generates a separate chunk (about.[hash].js) for this route
+          // which is lazy-loaded when the route is visited.
+          component: () => import(/* webpackChunkName: "about" */ '../../../views/index/weatherComponents/About.vue'),
+          meta: {
             auth: false,
           },
         },

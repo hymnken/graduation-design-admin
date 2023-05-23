@@ -5,7 +5,7 @@ export const key = '4a2f95a41e3741c8aba587d6d113cfb9'
 export function request(config, url) {
   const service = axios.create({
     baseURL: url,
-    timeout: 3000,
+    timeout: 5000,
   })
 
   //请求拦截
@@ -20,13 +20,13 @@ export function request(config, url) {
       console.log(error)
     }
   )
-
-  //响应拦截
+  // 响应拦截
   service.interceptors.response.use(
     (res) => {
       // 这里是服务器返回数据给我们
       // 在这之前处理一些内容，比如判断状态码200之类的
-      return res
+      // 大部分是data，可以封装起来
+      return res.data ? res.data : res
     },
     (error) => {
       console.log(error)
