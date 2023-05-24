@@ -5,13 +5,10 @@
 </template>
 <script>
 export default {
-  name: "App",
-};
+  name: 'App',
+}
 </script>
 <script setup>
-import zhCN from "ant-design-vue/es/locale/zh_CN";
+import zhCN from 'ant-design-vue/es/locale/zh_CN'
 </script>
-
-
-<style lang="scss">
-</style>
+<style lang="scss"></style>

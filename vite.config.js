@@ -3,34 +3,22 @@ import vue from '@vitejs/plugin-vue'
 import path from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
-  server: [
-    {
-      host: '127.0.0.1',
-      port: 7789,
-      proxy: {
-        '/bd': {
-          target: 'https://geoapi.qweather.com/',
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/bd/, ''),
-        },
-      },
-    },
-    {
+  server: {
+    host: '127.0.0.1',
+    port: 7789,
+    proxy: {
       '/api': {
         target: 'https://geoapi.qweather.com/',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
-    },
-    {
       '/apq': {
-        target: 'https:/devapi.qweather.com/',
+        target: 'https://devapi.qweather.com/',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
+        rewrite: (path) => path.replace(/^\/apq/, ''),
       },
     },
-  ],
-
+  },
   resolve: {
     alias: [
       {

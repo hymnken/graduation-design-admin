@@ -9,16 +9,14 @@
       </div>
     </div>
     <div class="weather">
-      <Suspense>
-        <router-view />
-      </Suspense>
+      <Weather />
     </div>
   </div>
 </template>
 
 <script setup>
-import Home from './weatherComponents/Home.vue'
 import { ref, onMounted, onUnmounted, inject, computed } from 'vue'
+import Weather from './weatherComponent/Weather.vue'
 // =====================
 const canvas = ref(null)
 const userInfo = inject('userInfo')
@@ -150,10 +148,10 @@ const drawTimer = () => {
     }
   }
   .weather {
-    margin-left: 0px;
+    margin-left: -40px;
     height: 700px;
     width: 400px;
-    background-color: #ece3e3;
+    // background-color: #ece3e3;
     display: flex;
     flex-direction: column;
     border-radius: 10px;

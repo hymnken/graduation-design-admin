@@ -19,6 +19,7 @@
     "vite-plugin-proxy": "^0.5.0",
     "vue": "^3.2.25",
     "vue-jsonp": "^2.0.0",
+    "vue-mini-weather": "^0.3.8",
     "vue-router": "^4.0.12",
     "vuex": "^4.0.2"
   },
