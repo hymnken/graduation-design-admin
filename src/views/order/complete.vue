@@ -5,8 +5,8 @@
     <a-table-column key="house" title="房屋信息" data-index="house">
       <template #default="{ record }">
         <div class="flex">
-          <img style="height:40px" :src="record.house.cover" alt />
-          <span style="margin-left:20px">{{record.house.fullname}}</span>
+          <img style="height: 40px" :src="record.house.cover" alt />
+          <span style="margin-left: 20px">{{ record.house.fullname }}</span>
         </div>
       </template>
     </a-table-column>
@@ -19,7 +19,7 @@
     </a-table-column>-->
     <a-table-column key="earnest_money" title="订单收入" data-index="earnest_money">
       <template #default="{ record }">
-        <span style="color:orange">￥{{ (record.total_money / 100).toFixed(2)}}</span>
+        <span style="color: orange">￥{{ record.total_money }}</span>
       </template>
     </a-table-column>
 
@@ -51,12 +51,9 @@
             v-permission="['sys_order']"
             @click="handleRenew(record)"
           >续住</a-button>-->
-          <a-button
-            v-if="record.status==4"
-            type="link"
-            v-permission="['sys_order']"
-            @click="handleComplete(record)"
-          >完成订单</a-button>
+          <a-button v-if="record.status == 4" type="link" v-permission="['sys_order']" @click="handleComplete(record)"
+            >完成订单</a-button
+          >
           <!-- <a-popconfirm
             title="确认要删除该订单?"
             ok-text="确认"
@@ -70,102 +67,90 @@
     </a-table-column>
   </a-table>
   <div class="flex flex-center m-t-20">
-    <a-pagination
-      @change="handlePageChange"
-      v-model:current="pageIndex"
-      :total="tableCount"
-      show-less-items
-    />
+    <a-pagination @change="handlePageChange" v-model:current="pageIndex" :total="tableCount" show-less-items />
   </div>
   <a-modal v-model:visible="visible" title="续住" @ok="handleOk">
     续住天数：
-    <a-input style="width:100px" v-model:value="reDays" />
+    <a-input style="width: 100px" v-model:value="reDays" />
   </a-modal>
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
-import { userModify, userDelete } from "@/api/user";
-import {
-  list,
-  orderDelete,
-  renew,
-  orderComplete,
-  orderCome,
-} from "@/api/order";
-import { message } from "ant-design-vue";
-import { useRouter } from "vue-router";
-const router = useRouter();
-const tableData = ref([]);
-const tableCount = ref(0);
-const pageIndex = ref(1);
-const visible = ref(false);
-const reDays = ref(1);
-const activeRow = ref("");
+import { onMounted, ref } from 'vue'
+import { userModify, userDelete } from '@/api/user'
+import { list, orderDelete, renew, orderComplete, orderCome } from '@/api/order'
+import { message } from 'ant-design-vue'
+import { useRouter } from 'vue-router'
+const router = useRouter()
+const tableData = ref([])
+const tableCount = ref(0)
+const pageIndex = ref(1)
+const visible = ref(false)
+const reDays = ref(1)
+const activeRow = ref('')
 const queryList = () => {
-  console.log(`ddd`);
+  console.log(`ddd`)
   list({ page: pageIndex.value, isComplete: true }).then((res) => {
-    tableData.value = [].concat(res.rows);
-    tableCount.value = res.count;
-  });
-};
+    tableData.value = [].concat(res.rows)
+    tableCount.value = res.count
+  })
+}
 
 onMounted(() => {
-  queryList();
-});
+  queryList()
+})
 
 const nav2Add = () => {
-  router.push({ name: "userModify" });
-};
+  router.push({ name: 'userModify' })
+}
 
 const handlePageChange = (e) => {
-  pageIndex.value = e;
-  queryList();
-};
+  pageIndex.value = e
+  queryList()
+}
 
 const handleComeIn = (row) => {
   orderCome({ id: row.id }).then((res) => {
-    message.success(`操作成功`);
-    window.location.reload();
-  });
-};
+    message.success(`操作成功`)
+    window.location.reload()
+  })
+}
 
 const handleEditClick = (id) => {
   router.push({
-    name: "userModify",
+    name: 'userModify',
     query: { id },
-  });
-};
+  })
+}
 
 const handleDelete = (row) => {
   orderDelete({ id: row.id }).then((res) => {
-    message.success(`删除成功`);
-    queryList();
-  });
-};
+    message.success(`删除成功`)
+    queryList()
+  })
+}
 const handleComplete = (row) => {
   orderComplete({ id: row.id }).then((res) => {
-    message.success(`操作成功`);
-    window.location.reload();
-  });
-};
+    message.success(`操作成功`)
+    window.location.reload()
+  })
+}
 const handleRenew = (row) => {
-  activeRow.value = row;
-  visible.value = true;
-};
+  activeRow.value = row
+  visible.value = true
+}
 const handleOk = (_) => {
-  if (!activeRow.value) return;
+  if (!activeRow.value) return
   renew({
     id: activeRow.value.id,
     days: reDays.value,
     price: activeRow.value.house.price,
   }).then((res) => {
-    visible.value = false;
-    message.success(`操作成功`);
-    window.location.reload();
-  });
-};
+    visible.value = false
+    message.success(`操作成功`)
+    window.location.reload()
+  })
+}
 </script>
 
-<style>
-</style>
+<style></style>

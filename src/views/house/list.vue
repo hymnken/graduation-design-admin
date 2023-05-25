@@ -6,7 +6,7 @@
     <div class="m-b-20"></div>
     <a-table :data-source="tableData" :pagination="false">
       <a-table-column key="id" title="民宿ID" data-index="id" />
-      <a-table-column key="fullname" title="民宿简介" data-index="fullname" />
+      <a-table-column key="fullname" title="民宿全称" data-index="fullname" />
       <a-table-column key="house_type" title="民宿标签" data-index="house_type" width="120px" />
       <a-table-column key="street" title="地址" data-index="street" />
       <a-table-column key="mobile" title="联系方式" data-index="mobile" />
@@ -32,7 +32,7 @@
     </div>
     <a-modal @ok="handleSave" v-model:visible="showDetailModal" width="800px" :title="houseData.id ? '编辑民宿' : '新增民宿'">
       <a-form :model="houseData" name="basic" autocomplete="off" @finish="onFinish" @finishFailed="onFinishFailed">
-        <a-form-item label="民宿简介" name="fullname" :rules="[{ required: true, message: '请输入民宿名称!' }]">
+        <a-form-item label="民宿全称" name="fullname" :rules="[{ required: true, message: '请输入民宿名称!' }]">
           <a-input :maxlength="50" show-count v-model:value="houseData.fullname" />
         </a-form-item>
         <a-form-item label="民宿标签" name="house_type">
@@ -49,7 +49,7 @@
         <a-form-item label="联系方式" name="mobile" :rules="[{ required: true, message: '请输入11位电话号码' }]">
           <a-input :maxlength="11" show-count v-model:value="houseData.mobile" />
         </a-form-item>
-        <a-form-item label="地址" name="street" :rules="[{ required: true, message: '请输入详细地址' }]">
+        <a-form-item label="街道地址" name="street" :rules="[{ required: true, message: '请输入详细地址' }]">
           <a-input :maxlength="150" show-count v-model:value="houseData.street" />
         </a-form-item>
         <a-form-item label="房间总数" name="rooms" :rules="[{ required: true, message: '请输入大于0的整数' }]">
