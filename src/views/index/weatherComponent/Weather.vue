@@ -3,15 +3,14 @@ export default {
   created() {
     window.WIDGET = {
       CONFIG: {
-        layout: '2',
-        width: '300',
-        height: '400',
-        background: '3',
+        layout: '1',
+        width: '450',
+        height: '310',
+        background: '1',
         dataColor: 'FFFFFF',
         language: 'zh',
-        borderRadius: '5',
-        city: 'CN101030100',
-        key: 'a5088b5afade48c69d482ff42487f7be',
+        borderRadius: '10',
+        key: 'b94f015fa6104d0db063e7379208fbd4',
       },
     }
   },

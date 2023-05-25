@@ -1,4 +1,5 @@
 <template>
+  <div class="head">欢迎来到朋聚客栈后台管理系统</div>
   <div class="zhuyao">
     <div class="ind">
       <canvas ref="canvas" id="canvas" width="460" height="460"></canvas>
@@ -9,14 +10,18 @@
       </div>
     </div>
     <div class="weather">
-      <Weather />
+      <Suspense>
+        <Weather />
+      </Suspense>
     </div>
+    <Calendar class="calen" />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted, inject, computed } from 'vue'
 import Weather from './weatherComponent/Weather.vue'
+import Calendar from './Calendar.vue'
 // =====================
 const canvas = ref(null)
 const userInfo = inject('userInfo')
@@ -131,11 +136,18 @@ const drawTimer = () => {
 </script>
 
 <style lang="scss" scoped>
+.head {
+  font-size: 40px;
+  text-align: center;
+  color: #0dd16c;
+}
 .zhuyao {
+  margin-top: 100px;
   display: flex;
   flex-direction: row;
   .ind {
     height: 400px;
+    margin-left: 80px;
     // display: flex;
     .text-welcome {
       margin-top: -120px;
@@ -148,13 +160,17 @@ const drawTimer = () => {
     }
   }
   .weather {
-    margin-left: -40px;
+    margin-left: 40px;
     height: 700px;
     width: 400px;
     // background-color: #ece3e3;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
+  }
+  .calen {
+    height: 400px;
+    margin-left: 250px;
   }
 }
 </style>
